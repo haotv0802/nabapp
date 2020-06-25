@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>nabsys</artifactId>
+	<artifactId>nabapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>nabsys</name>
+	<name>nabapp</name>
 	<description>Spring Boot</description>
 
 	<properties>

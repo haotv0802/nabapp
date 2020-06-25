@@ -7,7 +7,7 @@
 	<property name="FILE_LOG_PATTERN"
 		value="[%thread] %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n" />
 	
-	<property name="APP_LOG_ROOT" value="c:/temp/log" />
+	<property name="APP_LOG_ROOT" value="log_dir" />
 	<property name="LOG_FILE"
 		value="${APP_LOG_ROOT}/batchLog.log" />
 		
