@@ -1,4 +1,4 @@
-package com.nabsys;
+package com.product.nabsys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public interface UserRepository extends JpaRepository<User, Long> {
-    List<User> findAllByAtk(int atk);
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findAllByBranch(int branch);
 }
