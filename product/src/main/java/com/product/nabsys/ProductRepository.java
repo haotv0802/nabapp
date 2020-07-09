@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by haoho on 6/24/20.
  */
-@Repository
+@Repository("productRepository")
 @Transactional
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByBranch(int branch);
