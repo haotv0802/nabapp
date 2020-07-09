@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by haoho on 6/24/20.
  */
-@Repository
+@Repository("orderRepository")
 @Transactional
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findAllByProductId(int productId);
