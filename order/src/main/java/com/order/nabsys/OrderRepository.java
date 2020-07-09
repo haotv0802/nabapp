@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public interface UserRepository extends JpaRepository<User, Long> {
-    List<User> findAllByAtk(int atk);
+public interface OrderRepository extends JpaRepository<Order, Long> {
+    List<Order> findAllByProductId(int productId);
 }
