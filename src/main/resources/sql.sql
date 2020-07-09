@@ -2,50 +2,31 @@ DROP DATABASE IF EXISTS `haoho`;
 CREATE DATABASE IF NOT EXISTS `haoho`;
 use haoho;
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`
-(
-    `id`      bigint(20) NOT NULL AUTO_INCREMENT,
-    `hp`      int        NULL DEFAULT NULL,
-    `stamina` int             DEFAULT NULL,
-    `atk`     int             DEFAULT NULL,
-    `def`     int             DEFAULT NULL,
-    `agi`     int             DEFAULT NULL,
-    PRIMARY KEY (`id`)
-);
-
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product`
 (
-    `id`      bigint(20)  NOT NULL AUTO_INCREMENT,
-    `name`    int         NULL DEFAULT NULL,
-    `price`   int         NULL DEFAULT NULL,
-    `branch`  int         NULL DEFAULT NULL,
-    `colour`  varchar(20) NULL DEFAULT NULL,
-    `created` datetime         DEFAULT now() NOT NULL,
+    `id`      BIGINT(20)    NOT NULL AUTO_INCREMENT,
+    `name`    VARCHAR(20)   NULL     DEFAULT NULL,
+    `price`   DECIMAL(10, 5) NULL     DEFAULT NULL,
+    `branch`  VARCHAR(20)   NULL     DEFAULT NULL,
+    `colour`  VARCHAR(20)   NULL     DEFAULT NULL,
+    `created` DATETIME      NOT NULL DEFAULT now(),
     PRIMARY KEY (`id`)
 );
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order`
 (
-    `id`         bigint(20)             NOT NULL AUTO_INCREMENT,
-    `product_id` bigint                 NOT NULL,
-    `created`    datetime DEFAULT now() NOT NULL,
+    `id`         BIGINT(20) NOT NULL AUTO_INCREMENT,
+    `product_id` BIGINT     NOT NULL,
+    `created`    DATETIME   NOT NULL DEFAULT now(),
     CONSTRAINT `order_product_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
     PRIMARY KEY (`id`)
 );
 
-DELIMITER $$
-CREATE PROCEDURE generate_data()
-BEGIN
-    DECLARE i INT DEFAULT 0;
-    WHILE i < 100
-        DO
-            INSERT INTO `user` (`hp`, `stamina`, `atk`, `def`, `agi`) VALUES (i, i, i, i, i);
-            SET i = i + 1;
-        END WHILE;
-END$$
-DELIMITER ;
 
-CALL generate_data();
+INSERT INTO product (`name`, `price`, `branch`, `colour`)
+VALUES ('PRODUCT 1', 200.0, '01', 'RED'),
+       ('PRODUCT 2', 100.0, '02', 'GREEN'),
+       ('PRODUCT 3', 300.0, '03', 'BLUE'),
+       ('PRODUCT 4', 400.0, '04', 'YELLOW')
